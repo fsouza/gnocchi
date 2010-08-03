@@ -1,0 +1,6 @@
+<?php
+    
+public interface GnocchiContainer {
+
+}
+

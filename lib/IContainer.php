@@ -1,6 +1,0 @@
-<?php
-    
-public interface IContainer {
-
-}
-

@@ -23,10 +23,15 @@ class GnocchiClassLoader {
      *
      * @param $classNamePattern:
      *              A regular expression representing the name of the class to be loaded.
-     *               Examples: "Controller$"
+     *              Example: "Controller$"
+     * @param $directory:
+     *              Directory from where the class will be loaded.
+     *              Example: "app/controllers/"
      */
     public function registerLoader($classNamePattern, $directory) {
         $this->loaders[$classNamePattern] = $directory;
     }
+
+
 
 }

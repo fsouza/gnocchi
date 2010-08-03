@@ -2,11 +2,22 @@
 
 require_once 'PHPUnit/Framework.php';
 require_once 'lib/GnocchiContainer.php';
+require_once 'lib/GnocchiClassLoader.php';
 
 class ContainerTest extends PHPUnit_Framework_TestCase {
 
-    public function testStupidAssert() {
-        $this->assertEquals(1, 1);
+    private $container;
+
+    public function setUp() {
+        $this->container = new GnocchiContainer();
+    }
+
+    public function testContainerHasAClassLoader() {
+        $this->assertTrue($this->container->classLoader instanceof GnocchiClassLoader);
+    }
+
+    public function tearDown() {
+        unset($this->container);
     }
 
 }

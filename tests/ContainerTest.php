@@ -1,7 +1,5 @@
 <?php
 
-require_once 'PHPUnit/Framework.php';
-
 class ContainerTest extends PHPUnit_Framework_TestCase {
 
     private $container;

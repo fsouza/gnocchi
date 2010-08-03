@@ -15,7 +15,9 @@ Contributors are welcome :) You can fork it, code, test, commit, push and send p
 The only dependency on coding is the [PHPUnit](http://www.phpunit.de "PHPUnit") test framework. To install PHPUnit using Pear, just run on terminal:
 
 > $ [sudo] pear channel-discover pear.phpunit.de
+>
 > $ [sudo] pear channel-discover pear.symfony-project.com
+>
 > $ [sudo] pear install phpunit/PHPUnit
 
 If you don't want to use PEAR, check the [PHPUnit official web site](http://www.phpunit.de/manual/3.4/en/installation.html "PHPUnit official web site") out to see how to install it.

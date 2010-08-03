@@ -2,9 +2,13 @@
 
 function __autoload($className) {
     if (strpos($className, 'Gnocchi') === 0) {
-        require_once 'lib/'.$className.'.php';
-    } else if (strpos($className, 'Unknow') === FALSE) {
-        require_once 'tests/classes/'.$className.'.php';
+        $file = 'lib/'.$className.'.php';
+    } else {
+        $file= 'tests/classes/'.$className.'.php';
+    }
+
+    if (file_exists($file)) {
+        require_once $file;
     }
 }
 

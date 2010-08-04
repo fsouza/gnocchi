@@ -26,7 +26,7 @@ class AssemblerTest extends PHPUnit_Framework_TestCase {
         $returnArray[] = array('Person', $personParams, $person);
 
         $carParams = array('name' => 'C300', 'brand' => 'Chrysler');
-        $car = new Car($personParams['name'], $personParams['brand']);
+        $car = new Car($carParams['name'], $carParams['brand']);
         $returnArray[] = array('Car', $carParams, $car);
 
         return $returnArray;

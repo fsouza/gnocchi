@@ -17,7 +17,7 @@ class ClassLoaderTest extends PHPUnit_Framework_TestCase {
         $loader->loadClass('PeopleController');
     }
 
-    public function testRequireAnExistingClass() {
+    public function testLoadAnExistingClass() {
         $loader = new GnocchiClassLoader();
         $loader->registerLoader('/Loaded/', 'tests/classes/load');
         $loader->loadClass('AutoLoadedByClassLoader');

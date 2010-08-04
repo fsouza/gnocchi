@@ -8,8 +8,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
         $this->container = new GnocchiContainer();
     }
 
-    public function testContainerHasAClassLoader() {
-        $this->assertTrue($this->container->classLoader instanceof GnocchiClassLoader);
+    public function testGetComponentOnContainer() {
+        $this->container->addComponent('Person');
+        $component = $this->container->getComponent('Person');
+        $this->assertEquals($component->getClassName(), 'Person');
     }
 
     public function tearDown() {

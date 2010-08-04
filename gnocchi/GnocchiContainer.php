@@ -7,14 +7,12 @@
  */
 class GnocchiContainer {
 
-    var $classLoader;
     private $components;
 
     /**
      * Container constructor, has no parameters, just construct the object inside.
      */
     public function __construct() {
-        $this->classLoader = new GnocchiClassLoader();
         $this->components = array();
     }
 
@@ -29,6 +27,13 @@ class GnocchiContainer {
         } else {
             $this->components[$component] = new GnocchiComponent($component);
         }
+    }
+
+    /**
+     * @return the component identified by a name
+     */
+    public function getComponent($componentName) {
+        return $this->components[$componentName];
     }
 
 }

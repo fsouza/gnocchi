@@ -19,7 +19,7 @@ class ClassLoaderTest extends PHPUnit_Framework_TestCase {
 
     public function testLoadAnExistingClass() {
         $loader = new GnocchiClassLoader();
-        $loader->registerLoader('/Loaded/', 'tests/classes/load');
+        $loader->registerLoader('/Loaded/', 'tests/classes/load/');
         $loader->loadClass('AutoLoadedByClassLoader');
         $itens = array('just', 'for', 'test');
         $obj = new AutoLoadedByClassLoader($itens);

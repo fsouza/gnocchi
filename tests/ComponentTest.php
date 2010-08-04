@@ -42,6 +42,12 @@ class ComponentTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($component->getConstructorParametersWithValues(), $params);
     }
 
+    public function testGetParametersWithValuesWhenThereIsADefaultValue() {
+        $component = new GnocchiComponent('Notebook');
+        $component->setConstructorParameterValue('name', 'Dell Inspirion');
+        $this->assertEquals($component->getConstructorParametersWithValues(), array('name' => 'Dell Inspirion', 'color' => 'black'));
+    }
+
     public function expectCountProvider() {
         return array(
                 array('Person', 1),
@@ -54,7 +60,8 @@ class ComponentTest extends PHPUnit_Framework_TestCase {
         return array(
                 array('Person', array('name' => 'Barack Obama')),
                 array('Car', array('name' => 'C300', 'brand' => 'Chrysler')),
-                array('Chicken', array())
+                array('Chicken', array()),
+                array('Notebook', array('name' => 'Dell Inspirion', 'color' => 'white'))
             );
     }
 

@@ -70,6 +70,8 @@ class GnocchiComponent {
     }
 
     /**
+     * This method returns all parameters of the constructor 
+     *
      * @return an array containing all constructor parameters with its values ready to the class instantiation
      * @throws ReflectionException if there is not a value for the parameter and the parameter also has no default value
      */

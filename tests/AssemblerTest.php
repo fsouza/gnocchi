@@ -9,6 +9,16 @@ class AssemblerTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @expectedException ReflectionException
+     */
+    public function testRaisesReflectionExceptionWhenInstantiatingWithoutParams() {
+        $container = new GnocchiContainer();
+        $container->addComponent('Person');
+        $this->assembler->setContainer($container);
+        $this->assembler->get('Person');
+    }
+
+    /**
      * @dataProvider classInstanceProvider
      */
     public function testGetInstanceOfAGivenClass($class, $constructorParameters, $expectedObject) {

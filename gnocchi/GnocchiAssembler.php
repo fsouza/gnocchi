@@ -46,7 +46,7 @@ class GnocchiAssembler {
         $component = $this->container->getComponent($componentName);
         $class = $component->getReflectedClass();
         $constructorParameters = $component->getConstructorParametersWithValues();
-        return $class->newInstance($constructorParameters);
+        return $class->newInstanceArgs($constructorParameters);
     }
 
 }

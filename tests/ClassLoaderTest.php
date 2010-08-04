@@ -13,7 +13,7 @@ class ClassLoaderTest extends PHPUnit_Framework_TestCase {
      */
     public function testRaisesExceptionLoadingAnUnexistingClass() {
         $loader = new GnocchiClassLoader();
-        $loader->registerLoader('Controller$', 'app/controller');
+        $loader->registerLoader('/Controller$/', 'app/controller');
         $loader->loadClass('PeopleController');
     }
 

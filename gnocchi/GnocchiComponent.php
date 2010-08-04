@@ -48,6 +48,13 @@ class GnocchiComponent {
     }
 
     /**
+     * @return the reflected class (instance of ReflectionClass)
+     */
+    public function getReflectedClass() {
+        return $this->reflected;
+    }
+
+    /**
      * @return an array containing all parameters of the constructor
      */
     public function getConstructorParameters() {

@@ -26,6 +26,16 @@ class ClassLoaderTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($obj->itens, $itens);
     }
 
+    public function testLoadAnExistingClassWithTwoDirectories() {
+        $loader = new GnocchiClassLoader();
+        $loader->registerLoader('/Loaded/', 'app/controller');
+        $loader->registerLoader('/Loaded/', 'tests/classes/load');
+        $loader->loadClass('AutoLoadedByClassLoader');
+        $itens = array('just', 'for', 'test');
+        $obj = new AutoLoadedByClassLoader($itens);
+        $this->assertEquals($obj->itens, $itens);
+    }
+
     /**
      * @dataProvider patternArrayProvider
      */

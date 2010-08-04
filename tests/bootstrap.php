@@ -2,7 +2,7 @@
 
 function __autoload($className) {
     if (strpos($className, 'Gnocchi') === 0) {
-        $file = 'lib/'.$className.'.php';
+        $file = 'gnocchi/'.$className.'.php';
     } else {
         $file= 'tests/classes/'.$className.'.php';
     }

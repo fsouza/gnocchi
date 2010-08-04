@@ -28,7 +28,7 @@ class GnocchiClassLoader {
      *
      * @param $classNamePattern:
      *              A regular expression representing the name of the class to be loaded.
-     *              Example: "Controller$" for classes that ends with "Controller" (PeopleController, CarsController)
+     *              Example: "/Controller$/" for classes who ends with "Controller" (PeopleController, CarsController)
      * @param $directory:
      *              Directory from where the class will be loaded.
      *              Example: "app/controllers/"
@@ -58,8 +58,8 @@ class GnocchiClassLoader {
      *
      * Example code:
      *      >>> $loader = new GnocchiClassLoader();
-     *      >>> $loader->registerLoader('Controller$', 'app/controllers');
-     *      >>> $loader->registerLoader('Controller$', 'lib/controllers');
+     *      >>> $loader->registerLoader('/Controller$/', 'app/controllers');
+     *      >>> $loader->registerLoader('/Controller$/', 'lib/controllers');
      *      >>> $directories = $loader->findPatternDirectories('Controller$');
      *      >>> // $directories should equal to array('app/controllers', 'lib/controllers')
      *

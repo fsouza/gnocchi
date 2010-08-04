@@ -112,7 +112,7 @@ class GnocchiClassLoader {
         }
 
         if ($found === 0) {
-            throw new GnocchiClassNotFoundException($fullPath);
+            throw new GnocchiClassNotFoundException($className);
         }
     }
 

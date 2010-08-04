@@ -36,7 +36,21 @@ class GnocchiClassLoader {
     public function registerLoader($classNamePattern, $directory) {
         $loader[$classNamePattern] = $directory;
         $this->loaders[] = $loader;
-        $this->patterns = $classNamePattern;
+        $this->addPattern($classNamePattern);
+    }
+
+    /**
+     * Add a pattern to the internal patterns array.
+     *
+     * Validates if the pattern is already added.
+     *
+     * @param $pattern
+     *              The pattern to be added
+     */
+    protected function addPattern($pattern) {
+        if (!in_array($pattern, $this->patterns)) {
+            $this->patterns[] = $pattern;
+        }
     }
 
     /**
@@ -66,8 +80,40 @@ class GnocchiClassLoader {
         return $directories;
     }
 
+    /**
+     * Load a class by a provided name.
+     *
+     * @param $className
+     *              The name of the class that will be loaded.
+     */
     public function loadClass($className) {
-        // TODO: make this method :)
+        $p = NULL;
+        foreach ($this->patterns as $pattern) {
+            if (preg_match($pattern, $className)) {
+                $p = $pattern;
+                break;
+            }
+        }
+
+        $directories = $this->findPatternDirectories($p);
+        $found = 0;
+        foreach ($directories as $directory) {
+            if (substr($directory, -1) === '/') {
+                $fullPathPattern = '%s%s.php';
+            } else {
+                $fullPathPattern = '%s/%s.php';
+            }
+            $fullPath = sprintf($fullPathPattern, $directory, $className);
+
+            if (file_exists($fullPath)) {
+                require_once $fullPath;
+                $found++;
+            }
+        }
+
+        if ($found === 0) {
+            throw new GnocchiClassNotFoundException($fullPath);
+        }
     }
 
 }

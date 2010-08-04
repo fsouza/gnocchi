@@ -9,6 +9,24 @@ class ClassLoaderTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @expectedException GnocchiClassNotFoundException
+     */
+    public function testRaisesExceptionLoadingAnUnexistingClass() {
+        $loader = new GnocchiClassLoader();
+        $loader->registerLoader('Controller$', 'app/controller');
+        $loader->loadClass('PeopleController');
+    }
+
+    public function testRequireAnExistingClass() {
+        $loader = new GnocchiClassLoader();
+        $loader->registerLoader('/Loaded/', 'tests/classes/load');
+        $loader->loadClass('AutoLoadedByClassLoader');
+        $itens = array('just', 'for', 'test');
+        $obj = new AutoLoadedByClassLoader($itens);
+        $this->assertEquals($obj->itens, $itens);
+    }
+
+    /**
      * @dataProvider patternArrayProvider
      */
     public function testFindPatterns($pattern, $directories) {
@@ -34,6 +52,10 @@ class ClassLoaderTest extends PHPUnit_Framework_TestCase {
                 array($pattern2, $directories2),
                 array($pattern3, $directories3)
             );
+    }
+
+    public function tearDown() {
+        unset($this->loader);
     }
 
 }

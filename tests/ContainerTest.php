@@ -14,6 +14,13 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($component->getClassName(), 'Person');
     }
 
+    /**
+     * @expectedException GnocchiComponentNotFoundException
+     */
+    public function testRaisesExceptionOnUnknowComponent() {
+        $this->container->getComponent('UnknowComponent');
+    }
+
     public function tearDown() {
         unset($this->container);
     }

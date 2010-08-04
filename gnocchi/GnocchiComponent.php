@@ -38,6 +38,7 @@ class GnocchiComponent {
         $this->reflected = new ReflectionClass($className);
         $constructor = $this->reflected->getConstructor();
         $this->constructorParameters = $constructor->getParameters();
+        $this->constructorValues = array();
     }
 
     /**

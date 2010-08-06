@@ -16,6 +16,7 @@ Contents:
    :maxdepth: 2
 
    introduction/ioc.rst
+   gnocchi/what.rst
 
 Indices and tables
 ==================

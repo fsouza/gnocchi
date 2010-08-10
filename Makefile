@@ -9,3 +9,7 @@ unit:
 doc:
 	@echo 'Building the docs...'
 	@cd docs && make html
+
+phpdoc:
+	@echo 'Build the PHPDoc...'
+	@phpdoc -d gnocchi -t docs/_build/html/phpdoc

@@ -76,3 +76,5 @@ You can add components to a ``GnocchiContainer`` as you want. So, you can use a 
     ?>
 
 The ``$person`` object was instantiated by the assembler. The assembler calls the constructor passing the parameters specified when we added the component to the container, so the name of the ``$person`` object is *John* and he is *70* years old.
+
+To know better the Gnocchi classes, check the `PHPDoc for Gnocchi <http://doc.souza.cc/gnocchi/phpdoc>`_ out.

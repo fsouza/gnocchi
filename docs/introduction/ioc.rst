@@ -1,3 +1,5 @@
+.. _intro-ioc
+
 About IoC/DI
 ============
 
@@ -7,3 +9,5 @@ Using dependency injection with PHP
 +++++++++++++++++++++++++++++++++++
 
 Looking for *PHP + dependency injection* on Google you can found some snippets and classes that show how to create a DI container using PHP, but those snippets are not full of features. **Gnocchi** aims to bring the full power of dependency injection to PHP.
+
+Gnocchi using is easy. Here is a simple example:

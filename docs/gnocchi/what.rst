@@ -1,3 +1,5 @@
+.. _gnocchi-what
+
 What is Gnocchi?
 ================
 
@@ -8,4 +10,4 @@ Gnocchi is also a IoC/DI container for PHP.
 How do I use Gnocchi?
 +++++++++++++++++++++
 
-If you know why and where you should use Gnocchi, you may want to know how to use it. If you don't know why and/or where to use Gnocchi, check `About IoC/DI <introduction/ioc.html>`_ section.
+If you know why and where you should use Gnocchi, you may want to know how to use it. If you don't know why and/or where to use Gnocchi, check :doc:`About IoC/DI </introduction/ioc>` section.

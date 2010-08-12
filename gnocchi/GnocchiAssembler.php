@@ -12,7 +12,7 @@ class GnocchiAssembler {
     /**
      * Construct the assembler :)
      *
-     * @param $container (optional)
+     * @param GnocchiContainer (optional)
      *              GnocchiContainer instance that manages all components
      */
     public function __construct($container = NULL) {
@@ -24,7 +24,7 @@ class GnocchiAssembler {
     /**
      * Set the internal container
      *
-     * @param $container
+     * @param GnocchiContainer
      *              GnocchiContainer instance that manages all components
      */
     public function setContainer($container) {
@@ -34,13 +34,13 @@ class GnocchiAssembler {
     /**
      * Returns the instance of the component.
      *
-     * @param $componentName
+     * @param string
      *                  The component class name
      *
      * @throws GnocchiComponentNotFoundException if the component doesn't exists
      * @throws ReflectionException if something wrong happens during the class instantiation
      *
-     * @return an object, the component instance.
+     * @return Object the component instance.
      */
     public function get($componentName) {
         $component = $this->container->getComponent($componentName);

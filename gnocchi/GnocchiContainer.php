@@ -19,8 +19,8 @@ class GnocchiContainer {
     /**
      * Add a component to be managed by Gnocchi.
      *
-     * @param $component: The component name or the component object (instance of GnocchiComponent)
-     * @param $constructorParams: An array hashmap containing the constructor parameters and its values
+     * @param string The component name or the component object (instance of GnocchiComponent)
+     * @param array An array hashmap containing the constructor parameters and its values
      */
     public function addComponent($component, $constructorParams = array()) {
         if ($component instanceof GnocchiComponent) {
@@ -37,7 +37,7 @@ class GnocchiContainer {
      *
      * The component should be already managed by this container.
      *
-     * @param $componentName: The name of the component, already managed by the container
+     * @param string The name of the component, already managed by the container
      */
     public function setConstructorParameters($componentName, $parameters) {
         $component = $this->getComponent($componentName);
@@ -47,7 +47,7 @@ class GnocchiContainer {
     }
 
     /**
-     * @return the component identified by a name
+     * @return GnocchiComponent component identified by a name
      */
     public function getComponent($componentName) {
         if (!array_key_exists($componentName, $this->components)) {

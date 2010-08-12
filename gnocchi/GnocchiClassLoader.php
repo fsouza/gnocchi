@@ -26,10 +26,10 @@ class GnocchiClassLoader {
     /**
      * Method used for register a loader.
      *
-     * @param $classNamePattern:
+     * @param string
      *              A regular expression representing the name of the class to be loaded.
      *              Example: "/Controller$/" for classes who ends with "Controller" (PeopleController, CarsController)
-     * @param $directory:
+     * @param string
      *              Directory from where the class will be loaded.
      *              Example: "app/controllers/"
      */
@@ -44,7 +44,7 @@ class GnocchiClassLoader {
      *
      * Validates if the pattern is already added.
      *
-     * @param $pattern
+     * @param string
      *              The pattern to be added
      */
     protected function addPattern($pattern) {
@@ -63,10 +63,10 @@ class GnocchiClassLoader {
      *      >>> $directories = $loader->findPatternDirectories('Controller$');
      *      >>> // $directories should equal to array('app/controllers', 'lib/controllers')
      *
-     * @param $classNamePattern
-     *              The pattern that will be searched
+     * @param string
+     *              The pattern that will be searched (a regular expression)
      *
-     * @return an array containing all directories mapped to this class name patten.
+     * @return array array containing all directories mapped to this class name patten.
      *         Each element of this array is a string.
      */
     public function findPatternDirectories($classNamePattern) {
@@ -83,8 +83,9 @@ class GnocchiClassLoader {
     /**
      * Load a class by a provided name.
      *
-     * @param $className
+     * @param string
      *              The name of the class that will be loaded.
+     * @throws GnocchiClassNotFoundException when the class is not found
      */
     public function loadClass($className) {
         $p = NULL;
